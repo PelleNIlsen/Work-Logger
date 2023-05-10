@@ -1,11 +1,6 @@
 <?php
-//no pencil? i wanna hear pencil
 session_start();
 require 'config.php';
-// require 'pencil pls thanku'; // This line will crash the program
-// bro you remeber this line and I said it would crash the program
-// it crashed the program woopsies
-// fixed it tho. Thakn you fatehr
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false || $_SESSION['is_admin'] !== 1) {
     header('Location: login.php');
@@ -13,17 +8,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false || $_SESSIO
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username']; // yes 
+    $username = $_POST['username']; 
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $is_admin = isset($_POST['is_admin']) ? 1 : 0; // U still being productive?
+    $is_admin = isset($_POST['is_admin']) ? 1 : 0; 
 
     $sql = "INSERT INTO users (username, password, is_admin) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql); //goodgood
-    $stmt->bind_param("ssi", $username, $password, $is_admin); // I WROTE FUCKING BING AGAIN. true
-    $stmt->execute(); //me brain is a lexicon, i dont meant that
+    $stmt = $conn->prepare($sql); 
+    $stmt->bind_param("ssi", $username, $password, $is_admin); 
+    $stmt->execute(); 
 
     if ($stmt->affected_rows > 0) {
-        $success = "User registered successfully."; // <-- Did I type successfully correct... goodgood thankyou queen thumbsup
+        $success = "User registered successfully."; 
     } else {
         $error = "Error registering user.";
     }
@@ -36,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <!-- Bootstrap here too or sum other style -->
 </head>
 <body>
     <h2>Register</h2>

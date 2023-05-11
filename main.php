@@ -60,7 +60,7 @@ while ($row = $result->fetch_assoc()) {
             <div class="col-md-4 right-side">
                 <h2>Log Viewer</h2>
                 <div id="log-viewer"></div>
-            </div>   
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -69,8 +69,7 @@ while ($row = $result->fetch_assoc()) {
     <script>
         $(document).ready(function() {
             $("#work-logging-form").submit(function(event) {
-                event.preventDefault(); // BRO brobrobrobrobrobrobrobrobrobrobrobrobrobro bro. I fixed it. And I was right
-                // some fucking wasy mistake istg
+                event.preventDefault(); 
                 let formData = {
                     client: $("#client").val(),
                     time_window: $("#time_window").val(),
